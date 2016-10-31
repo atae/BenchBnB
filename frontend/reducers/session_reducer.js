@@ -4,28 +4,27 @@ import merge from 'lodash/merge';
 const _nullState = {
     currentUser: null,
     errors: []
-}
+};
 
 const sessionReducer = (state = _nullState, action) => {
   Object.freeze(state);
   // debugger
   switch(action.type) {
     case LOGOUT:
-      return merge({},_nullState)
-      break;
+      return merge({},state,_nullState);
+
     case RECEIVE_CURRENT_USER:
       let newState = {
           currentUser: action.user,
           errors: []
-      }
-      return newState
+      };
+      return newState;
     case RECEIVE_ERRORS:
-      let errors = {errors: action.errors}
-      return merge({}, state, errors)
-    break;
+      let errors = {errors: action.errors};
+      return merge({}, state, errors);
     default:
       return _nullState;
   }
-}
+};
 
 export default sessionReducer;
