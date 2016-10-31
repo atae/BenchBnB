@@ -3,7 +3,6 @@ import { Link } from "react-router";
 
 const Greeting = (props) => {
   // debugger
-  console.log(props.currentUser);
   if (props.currentUser !== null) {
     return (
       <div>

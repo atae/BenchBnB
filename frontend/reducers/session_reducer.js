@@ -7,6 +7,7 @@ const _nullState = {
 };
 
 const sessionReducer = (state = _nullState, action) => {
+  // debugger;
   Object.freeze(state);
   // debugger
   switch(action.type) {
@@ -23,7 +24,7 @@ const sessionReducer = (state = _nullState, action) => {
       let errors = {errors: action.errors};
       return merge({}, state, errors);
     default:
-      return _nullState;
+      return state;
   }
 };
 
